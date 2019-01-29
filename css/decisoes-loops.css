@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/css?family=Wellfleet);
+
+#page1{
+    background-color: #fecc6f;
+    height: 245px;
+    padding: 10px;
+    min-width: 565px;
+    background-image: url("../images/teacher.png");
+    background-size: auto 200px;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    margin-left: -45px;
+  }
+
+#answer {
+    border: 12px double #fff;
+	color: #523620;
+	text-align: left;
+	padding: 20px;
+	margin: 0px auto 10px auto;
+	width: 250px;
+    text-align: center;
+    font-family: 'Wellfleet', times, serif;
+}

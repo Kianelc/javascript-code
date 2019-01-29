@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Document Object Model (DOM)</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="../style-cap.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/document-object-model.css">
+    <link rel="stylesheet" type="text/css" href="../google-code-prettify/skins/desert.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+
+    <style>
+        #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" onload="PR.prettyPrint()">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <div class="js-header mdl-layout__header mdl-layout__header--waterfall">
+            <div class="mdl-layout__header-row">
+                <span class="js-title mdl-layout-title">
+                    <a href="../index.html"><span class="js-logo">JavaScript</span></a>
+                </span>
+                <div class="js-header-spacer mdl-layout-spacer"></div>
+                <div class="js-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" id="search-field">
+                    </div>
+                </div>
+                <span class="js-mobile-title mdl-layout-title">
+                    <span class="js-logo">JavaScript</span>
+                </span>
+                <button class="js-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+                    <li class="mdl-menu__item">5.0 Lollipop</li>
+                    <li class="mdl-menu__item">4.4 KitKat</li>
+                    <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
+                    <li class="mdl-menu__item">Android History</li>
+                </ul>
+            </div>
+        </div>
+        <div class="js-drawer mdl-layout__drawer">
+            <span class="mdl-layout-title">
+                <div class="mdl-logo-white">
+                    <span class="js-logo-white">JavaScript</span>
+                </div>
+            </span>
+            <nav class="mdl-navigation">
+                <span id="tt1" class="mdl-navigation__link" href="">Cápitulo 04</span>
+                <div class="mdl-tooltip" data-mdl-for="tt1">
+                    Cáp. 04 - Decisões & loops
+                </div>
+                <a class="mdl-navigation__link" href="../cap04/decisoes-loops.html">Decisões & Loops</a>
+                <div class="js-drawer-separator"></div>
+                <span class="mdl-navigation__link" href="">Cápitulo 05</span>
+                <a class="mdl-navigation__link" href="document-object.model.html">Document Object Model (DOM)</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <a name="top"></a>
+            <div class="mdl-layout__tab-panel is-active" id="overview">
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+                        <i class="material-icons">code</i>
+                    </header>
+                    <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                        <div class="mdl-card__supporting-text">
+                            <h4>JavaScript</h4>
+                            <pre class="prettyprint lang-js linenums">// ADICIONAR ITENS AO INÍCIO E AO FIM DA LISTA
+
+// Obtém o elemento &ltul&gt
+var list = document.getElementsByTagName('ul')[1];
+
+// ADICIONA UM NOVO ITEM AO FIM DA LISTA
+// Cria o elemento
+var newItemLast = document.createElement('li');
+// Cria o nó de texto
+var newTextLast = document.createTextNode('cream');
+// Adiciona o nó de texto ao elemento
+newItemLast.appendChild(newTextLast);
+// Adiciona o elemento ao fim da lista
+list.appendChild(newItemLast);
+
+// ADICIONA UM NOVO ITEM AO INÍCIO DA LISTA
+// Cria o elemento
+var newItemFirst = document.createElement('li');
+// Cria o nó de texto
+var newTextFirst = document.createTextNode('kale');
+// Adiciona o nó de texto ao elemento
+newItemFirst.appendChild(newTextFirst);
+// Adiciona o elemento à lista
+list.insertBefore(newItemFirst, list.firstChild);
+
+// ADICIONA A CLASSE COOL A TODOS OS ITENS
+
+// Todos os elements &ltli&gt
+var listItems = document.querySelectorAll('li');
+
+// Variáveil contadora
+var i;
+// Itera pelos elementos
+for (i = 0; i < listItems.length; i++) {
+    // Muda a classe para cool
+    listItems[i].className = 'cool';
+}
+
+// ADICIONA O NÚMERO DE ITENS DA LISTA AO TÍTULO
+
+// Elemento h2
+var heading = document.querySelector('h2');
+// Texto do elemento h2
+var headingText = heading.firstChild.nodeValue;
+// Número de elementos &ltli&gt
+var totalItems = listItems.length;
+// Conteúdo
+var newHeading = headingText + '&ltspan&gt' + totalItems + '&lt/span&gt';
+// Atualiza h2
+heading.innerHTML = newHeading;</pre>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <a href="https://developer.mozilla.org/pt-BR/docs/DOM/Referencia_do_DOM"
+                                target="_blank" class="mdl-button">Leia mais</a>
+                        </div>
+                    </div>
+                    <button class="mdl-button mdl-js-button mdl-button--icon" onclick="window.open('https://codepen.io/kianelc/full/LqVWPm', '_blank')">
+                        <i class="fab fa-codepen"></i>
+                    </button>
+                </section>
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--pink-100 mdl-color-text--white">
+                        <i class="material-icons">pageview</i>
+                    </header>
+                    <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                        <div class="mdl-card__supporting-text">
+                            <h4>Resultado</h4>
+                            <div class="body-cap5">
+                                <h1 id="header">List King</h1>
+                                <h2 id="buy-groceries">Buy groceries</h2>
+                                <ul class="list">
+                                    <li id="one" class="hot"><em>fresh</em> figs</li>
+                                    <li id="two" class="hot">pine nuts</li>
+                                    <li id="three" class="hot">honey</li>
+                                    <li id="four">balsamic vinegar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <footer class="js-footer mdl-mega-footer">
+                <div class="mdl-mega-footer--top-section">
+                    <div class="mdl-mega-footer--left-section">
+                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" onclick="window.open('https://github.com/Kianelc', '_blank')">
+                            <i class="fab fa-github"></i>
+                        </button>
+                        &nbsp;
+                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" onclick="window.open('https://www.linkedin.com/in/kiane-l-casagrande-169876b6/', '_blank')">
+                            <i class="fab fa-linkedin-in"></i>
+                        </button>
+                        &nbsp;
+                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" onclick="window.open('https://codepen.io/kianelc/', '_blank')">
+                            <i class="fab fa-codepen"></i>
+                        </button>
+                    </div>
+                    <div class="mdl-mega-footer--right-section">
+                        <a class="mdl-typography--font-light" href="#top">
+                            Back to Top
+                            <i class="material-icons">expand_less</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mdl-mega-footer--middle-section">
+                    <p class="mdl-typography--font-light">Copyright © 2019 - Kianelc - Todos os direitos reservados</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/text-only/" target="_blank" id="view-source"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View
+        Source</a>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="../google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="../js/document-object-model.js"></script>
+</body>
+
+</html>

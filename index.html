@@ -1,0 +1,269 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>JavaScript & jQuery</title>
+
+  <!-- Page styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+  <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+</head>
+
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="js-header mdl-layout__header mdl-layout__header--waterfall">
+      <div class="mdl-layout__header-row">
+        <span class="js-title mdl-layout-title">
+          <a href="/"><span class="js-logo">JavaScript</span></a>
+        </span>
+        <!-- Add spacer, to align navigation to the right in desktop -->
+        <div class="js-header-spacer mdl-layout-spacer"></div>
+        <div class="js-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" id="search-field">
+          </div>
+        </div>
+        <span class="js-mobile-title mdl-layout-title">
+          <span class="js-logo">JavaScript</span>
+        </span>
+        <button class="js-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+          <li class="mdl-menu__item">5.0 Lollipop</li>
+          <li class="mdl-menu__item">4.4 KitKat</li>
+          <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
+          <li class="mdl-menu__item">Android History</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="js-drawer mdl-layout__drawer">
+      <span class="mdl-layout-title">
+        <div class="mdl-logo-white">
+          <span class="js-logo-white">JavaScript</span>
+        </div>
+      </span>
+      <nav class="mdl-navigation">
+        <span id="tt1" class="mdl-navigation__link" href="">Cápitulo 04</span>
+        <div class="mdl-tooltip" data-mdl-for="tt1">
+          Cáp. 04 - Decisões & loops
+        </div>
+        <a class="mdl-navigation__link" href="cap04/decisoes-loops.html">Decisões & Loops</a>
+        <div class="js-drawer-separator"></div>
+        <span class="mdl-navigation__link" href="">Cápitulo 05</span>
+        <a class="mdl-navigation__link" href="cap05/document-object.model.html">Document Object Model (DOM)</a>
+        <div class="js-drawer-separator"></div>
+        <span class="mdl-navigation__link" href="">Cápitulo 06</span>
+        <a class="mdl-navigation__link" href="cap06/delegacao-evento.html">Delegação de Evento</a>
+      </nav>
+    </div>
+
+    <div class="js-content mdl-layout__content">
+      <a name="top"></a>
+      <div class="js-be-together-section mdl-typography--text-center">
+        <div class="logo-font js-slogan">JavaScript <span class="js-slogan-letter">&</span> jQuery</div>
+        <div class="logo-font js-sub-slogan">desenvolvimento de interfaces web interativas</div>
+        <div class="logo-font js-create-character">
+          <a href=""><img src="images/andy.png"> create your js character</a>
+        </div>
+
+        <a href="#screens">
+          <button class="js-fab mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--pink">
+            <i class="material-icons">keyboard_arrow_down</i>
+          </button>
+        </a>
+      </div>
+      <!-- <div class="js-customized-section">
+        <div class="js-customized-section-text">
+          <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Customised by you, for you</div>
+          <p class="mdl-typography--font-light">
+            Put the stuff that you care about right on your home screen: the latest news, the weather or a stream of
+            your recent photos.
+            <br>
+            <a href="" class="js-link mdl-typography--font-light">Customise your phone</a>
+          </p>
+        </div>
+        <div class="js-customized-section-image"></div>
+      </div> -->
+      <div class="js-more-section">
+        <a name="screens"></a>
+        <div class="js-section-title mdl-typography--display-1-color-contrast">Mais exercícios JS</div>
+        <div class="js-card-container mdl-grid">
+          <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+            <div class="mdl-card__media">
+              <img src="images/calculadora2.png">
+            </div>
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Função com propriedades e métodos</h4>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <span class="mdl-typography--font-light mdl-typography--subhead">Esse exercício é um exemplo de <b>calculadora</b>
+                que grava histórico</span>
+            </div>
+            <div class="mdl-card__actions">
+              <a class="js-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="mais-exercicios/calculadora/calculadora.html">
+                Ver mais
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </div>
+          </div>
+
+          <!-- <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+            <div class="mdl-card__media">
+              <img src="images/more-from-4.png">
+            </div>
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Create your own Android character</h4>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <span class="mdl-typography--font-light mdl-typography--subhead">Turn the little green Android mascot
+                into you, your friends, anyone!</span>
+            </div>
+            <div class="mdl-card__actions">
+              <a class="js-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                androidify.com
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </div>
+          </div>
+
+          <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+            <div class="mdl-card__media">
+              <img src="images/more-from-2.png">
+            </div>
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Get a clean customisable home screen</h4>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <span class="mdl-typography--font-light mdl-typography--subhead">A clean, simple, customisable home
+                screen that comes with the power of Google Now: Traffic alerts, weather and much more, just a swipe
+                away.</span>
+            </div>
+            <div class="mdl-card__actions">
+              <a class="js-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                Download now
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </div>
+          </div>
+
+          <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+            <div class="mdl-card__media">
+              <img src="images/more-from-3.png">
+            </div>
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Millions to choose from</h4>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <span class="mdl-typography--font-light mdl-typography--subhead">Hail a taxi, find a recipe, run through
+                a temple – Google Play has all the apps and games that let you make your Android device uniquely yours.</span>
+            </div>
+            <div class="mdl-card__actions">
+              <a class="js-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                Find apps
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <footer class="js-footer mdl-mega-footer">
+        <div class="mdl-mega-footer--top-section">
+          <div class="mdl-mega-footer--left-section">
+            <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" onclick="window.open('https://github.com/Kianelc', '_blank')">
+              <i class="fab fa-github"></i>
+            </button>
+            &nbsp;
+            <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" onclick="window.open('https://www.linkedin.com/in/kiane-l-casagrande-169876b6/', '_blank')">
+              <i class="fab fa-linkedin-in"></i>
+            </button>
+            &nbsp;
+            <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" onclick="window.open('https://codepen.io/kianelc/', '_blank')">
+              <i class="fab fa-codepen"></i>
+            </button>
+          </div>
+          <div class="mdl-mega-footer--right-section">
+            <a class="mdl-typography--font-light" href="#top">
+              Voltar ao topo
+              <i class="material-icons">expand_less</i>
+            </a>
+          </div>
+        </div>
+        <div class="mdl-mega-footer--middle-section">
+          <p class="mdl-typography--font-light">Copyright © 2019 - Kianelc - Todos os direitos reservados</p>
+        </div>
+        <!--div class="mdl-mega-footer--bottom-section">
+                <a class="js-link js-link-menu mdl-typography--font-light" id="version-dropdown">
+                    Versions
+                    <i class="material-icons">arrow_drop_up</i>
+                </a>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="version-dropdown">
+                    <li class="mdl-menu__item">5.0 Lollipop</li>
+                    <li class="mdl-menu__item">4.4 KitKat</li>
+                    <li class="mdl-menu__item">4.3 Jelly Bean</li>
+                    <li class="mdl-menu__item">Android History</li>
+                </ul>
+                <a class="js-link js-link-menu mdl-typography--font-light" id="developers-dropdown">
+                    For Developers
+                    <i class="material-icons">arrow_drop_up</i>
+                </a>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="developers-dropdown">
+                    <li class="mdl-menu__item">App developer resources</li>
+                    <li class="mdl-menu__item">Android Open Source Project</li>
+                    <li class="mdl-menu__item">Android SDK</li>
+                    <li class="mdl-menu__item">Android for Work</li>
+                </ul>
+                <a class="js-link mdl-typography--font-light" href="">Blog</a>
+                <a class="js-link mdl-typography--font-light" href="">Privacy Policy</a>
+            </div-->
+      </footer>
+    </div>
+  </div>
+  <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/js-dot-com/" target="_blank" id="view-source"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View
+    Source</a>
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+</html>

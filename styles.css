@@ -1,0 +1,583 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+  margin: 0;
+}
+
+/* Disable ugly boxes around images in IE10 */
+a img{
+  border: 0px;
+}
+
+::-moz-selection {
+  background-color: #efd81d;
+  color: #fff;
+}
+
+::selection {
+  background-color: #efd81d;
+  color: #fff;
+}
+
+.title-propagacao-evento{
+  color: #00bfa5;
+}
+.title-captura-evento{
+  color: #f77fa3;
+}
+
+.js-search-box .mdl-textfield__input {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.js-header .mdl-menu__container {
+  z-index: 50;
+  margin: 0 !important;
+}
+
+.mdl-layout__drawer::-webkit-scrollbar {
+  width: 6px;
+}
+ 
+.mdl-layout__drawer::-webkit-scrollbar-thumb {
+  background: #D9D9D9; 
+  border-radius: 10px;
+  height: 149px;
+}
+
+.mdl-layout__drawer::-webkit-scrollbar-thumb:hover {
+  background: #D9D9D9; 
+}
+
+.mdl-textfield--expandable {
+  width: auto;
+}
+
+.js-fab {
+  position: absolute;
+  right: 20%;
+  bottom: -26px;
+  z-index: 3;
+  /*background: #64ffda !important;*/
+  color: white !important;
+  box-shadow: none !important;
+}
+
+.js-mobile-title {
+  display: none !important;
+}
+
+.js-logo {
+  color: #efd81d; 
+  font-weight: 600;
+}
+
+.js-title > a{
+  text-decoration: none;
+}
+
+.js-logo-white{
+  color: #fff; 
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.js-slogan-letter{
+  color: #f77fa3;
+}
+
+.mdl-logo-white{
+  padding-right: 40px;
+  align-items: end;
+  height: 100%;
+  text-align: center;
+  display: grid;
+}
+
+.js-header {
+  overflow: visible;
+  background-color: white;
+}
+
+  .js-header .material-icons {
+    color: #767777 !important;
+  }
+
+  .js-header .mdl-layout__drawer-button {
+    background: transparent;
+    color: #767777;
+  }
+
+  .js-header .mdl-navigation__link {
+    color: #757575;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .js-navigation-container {
+    /* Simple hack to make the overflow happen to the left instead... */
+    direction: rtl;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 500px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .js-navigation {
+    /* ... and now make sure the content is actually LTR */
+    direction: ltr;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 800px;
+  }
+
+  .js-search-box.is-focused + .js-navigation-container {
+    opacity: 0;
+    width: 100px;
+  }
+
+
+  .js-navigation .mdl-navigation__link {
+    display: inline-block;
+    height: 60px;
+    line-height: 68px;
+    background-color: transparent !important;
+    border-bottom: 4px solid transparent;
+  }
+
+    .js-navigation .mdl-navigation__link:hover {
+      border-bottom: 4px solid #efd81d;
+    }
+
+  .js-search-box {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .js-more-button {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+
+
+.js-drawer {
+  border-right: none;
+}
+
+  .js-drawer-separator {
+    height: 1px;
+    background-color: #dcdcdc;
+    margin: 8px 0;
+  }
+
+  .js-drawer .mdl-navigation__link.mdl-navigation__link {
+    font-size: 14px;
+    color: #757575;
+  }
+
+  .js-drawer span.mdl-navigation__link.mdl-navigation__link {
+    color: #f77fa3;
+  }
+
+  .js-drawer .mdl-layout-title {
+    position: relative;
+    background: #efd81d;
+    height: 160px;
+  }
+
+    .js-drawer {
+      position: absolute;
+      bottom: 16px;
+    }
+
+.js-be-together-section {
+  position: relative;
+  height: 800px;
+  width: auto;
+  background-color: #f3f3f3;
+  background: url('images/slide01.jpg') center 30% no-repeat;
+  background-size: cover;
+}
+
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1;
+  color: #767777;
+  font-weight: 500;
+}
+
+.js-slogan {
+  font-size: 60px;
+  padding-top: 80px;
+}
+
+.js-sub-slogan {
+  font-size: 21px;
+  padding-top: 24px;
+}
+
+.js-create-character {
+  font-size: 21px;
+  padding-top: 470px;
+}
+
+  .js-create-character a {
+    text-decoration: none;
+    color: #767777;
+    font-weight: 300;
+  }
+
+.js-screen-section {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.js-screens {
+  text-align: right;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.js-screen {
+  text-align: center;
+}
+
+.js-screen .js-link {
+  margin-top: 16px;
+  display: block;
+  z-index: 2;
+}
+
+.js-image-link {
+  text-decoration: none;
+}
+
+.js-wear {
+  display: inline-block;
+  width: 160px;
+  margin-right: 32px;
+}
+
+  .js-wear .js-screen-image {
+    width: 40%;
+    z-index: 1;
+  }
+
+
+.js-phone {
+  display: inline-block;
+  width: 64px;
+  margin-right: 48px;
+}
+
+  .js-phone .js-screen-image {
+    width: 100%;
+    z-index: 1;
+  }
+
+
+.js-tablet {
+  display: inline-block;
+  width: 110px;
+  margin-right: 64px;
+}
+
+  .js-tablet .js-screen-image {
+    width: 100%;
+    z-index: 1;
+  }
+
+  .js-tablet .js-link {
+    display: block;
+    z-index: 2;
+  }
+
+
+.js-tv {
+  display: inline-block;
+  width: 300px;
+  margin-right: 80px;
+}
+
+  .js-tv .js-screen-image {
+    width: 100%;
+    z-index: 1;
+  }
+
+
+.js-auto {
+  display: inline-block;
+  width: 300px;
+  overflow: hidden;
+}
+
+  .js-auto .js-screen-image {
+    display: block;
+    height: 300px;
+    z-index: 1;
+  }
+
+
+.js-wear-section {
+  position: relative;
+  background: url('images/wear.png') center top no-repeat;
+  background-size: cover;
+  height: 800px;
+}
+
+.js-wear-band {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #37474f;
+}
+
+.js-wear-band-text {
+  max-width: 800px;
+  margin-left: 25%;
+  padding: 24px;
+  text-align: left;
+  color: white;
+}
+
+  .js-wear-band-text p {
+    padding-top: 8px;
+  }
+
+.js-link {
+  text-decoration: none;
+  color: #8bc34a !important;
+}
+
+  .js-link:hover {
+    color: #7cb342 !important;
+  }
+
+  .js-link .material-icons {
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+  }
+
+.js-alt-link {
+  text-decoration: none;
+  color: #64ffda !important;
+  font-size: 16px;
+}
+
+  .js-alt-link:hover {
+    color: #00bfa5 !important;
+  }
+
+  .js-alt-link .material-icons {
+    position: relative;
+    top: 6px;
+  }
+
+.js-customized-section {
+  text-align: center;
+}
+
+.js-customized-section-text {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px 16px 0 16px;
+}
+
+  .js-customized-section-text p {
+    padding-top: 16px;
+  }
+
+.js-customized-section-image {
+  background: url('images/devices.jpg') center top no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.js-more-section {
+  padding: 80px 0;
+  max-width: 1044px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  .js-more-section .js-section-title {
+    margin-left: 12px;
+    padding-bottom: 24px;
+  }
+
+.js-card-container {
+}
+
+  .js-card-container .mdl-card__media {
+    overflow: hidden;
+    background: transparent;
+  }
+
+    .js-card-container .mdl-card__media img {
+      width: 100%;
+    }
+
+  .js-card-container .mdl-card__title {
+    background: transparent;
+    height: auto;
+  }
+
+  .js-card-container .mdl-card__title-text {
+    color: black;
+    height: auto;
+  }
+
+  .js-card-container .mdl-card__supporting-text {
+    height: auto;
+    color: black;
+    padding-bottom: 56px;
+  }
+
+  .js-card-container .mdl-card__actions {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .js-card-container .mdl-card__actions a {
+    border-top: none;
+    font-size: 16px;
+  }
+
+.js-footer {
+  background-color: #fafafa;
+  position: relative;
+}
+
+  .js-footer a:hover {
+    color: #8bc34a;
+  }
+
+  .js-footer .mdl-mega-footer--top-section::after {
+    border-bottom: none;
+  }
+
+  .js-footer .mdl-mega-footer--middle-section::after {
+    border-bottom: none;
+  }
+
+  .js-footer .mdl-mega-footer--bottom-section {
+    position: relative;
+  }
+
+  .js-footer .mdl-mega-footer--bottom-section a {
+    margin-right: 2em;
+  }
+
+  .js-footer .mdl-mega-footer--right-section a .material-icons {
+    position: relative;
+    top: 6px;
+  }
+
+
+.js-link-menu:hover {
+  cursor: pointer;
+}
+
+
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+  .js-navigation-container {
+    display: none;
+  }
+
+  .js-title {
+    display: none !important;
+  }
+
+  .js-mobile-title {
+    display: block !important;
+    position: absolute;
+    left: calc(50% - 70px);
+    top: 12px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
+     consecutive "+" operators in some cases. Therefore, we need to use both
+     here to cover all the bases. */
+  .js.js-search-box.is-focused ~ .js-mobile-title,
+  .js-search-box.is-focused + .js-navigation-container + .js-mobile-title {
+    opacity: 0;
+  }
+
+  .js-more-button {
+    display: none;
+  }
+
+  .js-search-box.is-focused {
+    width: calc(100% - 48px);
+  }
+
+  .js-search-box .mdl-textfield__expandable-holder {
+    width: 100%;
+  }
+
+  .js-be-together-section {
+    height: 350px;
+  }
+
+  .js-slogan {
+    font-size: 26px;
+    margin: 0 16px;
+    padding-top: 24px;
+  }
+
+  .js-sub-slogan {
+    font-size: 16px;
+    margin: 0 16px;
+    padding-top: 8px;
+  }
+
+  .js-create-character {
+    padding-top: 200px;
+    font-size: 16px;
+  }
+
+  .js-create-character img {
+    height: 12px;
+  }
+
+  .js-fab {
+    display: none;
+  }
+
+  .js-wear-band-text {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .js-footer .mdl-mega-footer--bottom-section {
+    display: none;
+  }
+}

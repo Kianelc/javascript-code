@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Document Object Model (DOM)</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="../style-cap.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/delegacao-evento.css">
+    <link rel="stylesheet" type="text/css" href="../google-code-prettify/skins/desert.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+
+    <style>
+        #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" onload="PR.prettyPrint()">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <div class="js-header mdl-layout__header mdl-layout__header--waterfall">
+            <div class="mdl-layout__header-row">
+                <span class="js-title mdl-layout-title">
+                    <a href="../index.html"><span class="js-logo">JavaScript</span></a>
+                </span>
+                <div class="js-header-spacer mdl-layout-spacer"></div>
+                <div class="js-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" id="search-field">
+                    </div>
+                </div>
+                <span class="js-mobile-title mdl-layout-title">
+                    <span class="js-logo">JavaScript</span>
+                </span>
+                <button class="js-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+                    <li class="mdl-menu__item">5.0 Lollipop</li>
+                    <li class="mdl-menu__item">4.4 KitKat</li>
+                    <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
+                    <li class="mdl-menu__item">Android History</li>
+                </ul>
+            </div>
+        </div>
+        <div class="js-drawer mdl-layout__drawer">
+            <span class="mdl-layout-title">
+                <div class="mdl-logo-white">
+                    <span class="js-logo-white">JavaScript</span>
+                </div>
+            </span>
+            <nav class="mdl-navigation">
+                <span id="tt1" class="mdl-navigation__link" href="">Cápitulo 04</span>
+                <div class="mdl-tooltip" data-mdl-for="tt1">
+                    Cáp. 04 - Decisões & loops
+                </div>
+                <a class="mdl-navigation__link" href="../cap04/decisoes-loops.html">Decisões & Loops</a>
+                <div class="js-drawer-separator"></div>
+                <span class="mdl-navigation__link" href="">Cápitulo 05</span>
+                <a class="mdl-navigation__link" href="document-object.model.html">Document Object Model (DOM)</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <a name="top"></a>
+            <div class="mdl-layout__tab-panel is-active" id="overview">
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+                        <i class="material-icons">code</i>
+                    </header>
+                    <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                        <div class="mdl-card__supporting-text">
+                            <h4>JavaScript</h4>
+                            <pre class="prettyprint lang-js linenums">// Declara a função
+function getTarget(e) {
+    // Se não houver objeto event
+    if (!e) {
+        // Usa o objeto event IE antigo
+        e = window.event;
+    }
+    // Obtém o alvo do evento
+    return e.target || e.srcElement;
+}
+
+// Declara a função
+function itemDone(e) {
+    // Declara as variáveis
+    var target, elListItem, elList;
+    // Obtém o link do item clicado
+    target = getTarget(e);
+    
+    // Se o usuário clicou em um elemento a
+    if (target.nodeName.toLowerCase() == "a") {
+        // Obtenha seu elemento li
+        elListItem = target.parentNode;
+        // Obtenha seu elemento ul
+        elList = elListItem.parentNode;      
+        // Remove o item da lista da lista  
+        elList.removeChild(elListItem);
+    }
+
+    // Se o usuário clicou em um elemento em
+    if (target.nodeName.toLowerCase() == "em") {
+        // Obtenha seu elemento li
+        elListItem = target.parentNode.parentNode;
+        // Obtenha seu elemento ul
+        elList = elListItem.parentNode;
+        // Remove o item da lista da lista
+        elList.removeChild(elListItem);
+    }
+
+    // Impede que o link leve o usuário para outro lugar
+    // Se preventDefault() funcionar
+    if (e.preventDefault) {
+        // Use preventDefault()
+        e.preventDefault();
+    // Caso contrário
+    } else {
+        // Use a versão antiga do IE
+        e.returnValue = false;
+    }
+}
+
+// Configura ouvintes de evento para chamar itemDone() on click
+// Obtém a lista de compras
+var el = document.getElementById('shoppingList');
+// Se os ouvintes funcionarem
+if (el.addEventListener) {
+    // Adiciona o ouvinte de on click
+    el.addEventListener('click', function (e) {
+        // Chama a função itemDone()
+        itemDone(e);
+    // Usa a fase de propagação para fluir
+    }, false);
+// Caso contrário
+} else {
+    // Usa o antigo modelo IE: onclick
+    el.attachEvent('onclick', function (e) {
+        // Chama a função itemDone()
+        itemDone(e);
+    })
+}
+</pre>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <a href="https://developer.mozilla.org/pt-BR/docs/Aprender/JavaScript/Elementos_construtivos/Events"
+                                target="_blank" class="mdl-button">Leia mais</a>
+                        </div>
+                    </div>
+                </section>
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--pink-100 mdl-color-text--white">
+                        <i class="material-icons">pageview</i>
+                    </header>
+                    <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                        <div class="mdl-card__supporting-text">
+                            <h4>Resultado</h4>
+                            <div id="page">
+                                <h1 id="header">List King</h1>
+                                <h2 id="buy-groceries">Buy groceries</h2>
+                                <ul id="shoppingList">
+                                    <li class="complete"><a href="itemDone.php?id=1"><em>fresh</em> figs</a></li>
+                                    <li class="complete"><a href="itemDone.php?id=2">pine nuts</a></li>
+                                    <li class="complete"><a href="itemDone.php?id=3">honey</a></li>
+                                    <li class="complete"><a href="itemDone.php?id=4">balsamic vinegar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <div class="mdl-card mdl-cell mdl-cell--6-col">
+                        <div class="mdl-card__supporting-text">
+                            <h4 class="title-propagacao-evento">Propagração de Evento</h4>
+                            <span class="mdl-typography--font-light mdl-typography--subhead">
+                                O evento começa no nó mais especifico e <span class="title-propagacao-evento">flui para fora</span> até o menos especifico. Esse é o tipo
+                                padrão de fluxo de eventos com suporte de navegador muito amplo.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-cell mdl-cell--6-col">
+                        <div class="mdl-card__supporting-text">
+                            <h4 class="title-captura-evento">Captura de Evento</h4>
+                            <span class="mdl-typography--font-light mdl-typography--subhead">
+                                O evento começa no nó menos específico e <span class="title-captura-evento">flui para dentro</span> até o mais específico.
+                                <br/>
+                                <i>Obs.: não é suportado no IE 8 e versões anteriores.</i>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <footer class="js-footer mdl-mega-footer">
+                <div class="mdl-mega-footer--top-section">
+                    <div class="mdl-mega-footer--left-section">
+                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" onclick="window.open('https://github.com/Kianelc', '_blank')">
+                            <i class="fab fa-github"></i>
+                        </button>
+                        &nbsp;
+                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" onclick="window.open('https://www.linkedin.com/in/kiane-l-casagrande-169876b6/', '_blank')">
+                            <i class="fab fa-linkedin-in"></i>
+                        </button>
+                        &nbsp;
+                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" onclick="window.open('https://codepen.io/kianelc/', '_blank')">
+                            <i class="fab fa-codepen"></i>
+                        </button>
+                    </div>
+                    <div class="mdl-mega-footer--right-section">
+                        <a class="mdl-typography--font-light" href="#top">
+                            Back to Top
+                            <i class="material-icons">expand_less</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mdl-mega-footer--middle-section">
+                    <p class="mdl-typography--font-light">Copyright © 2019 - Kianelc - Todos os direitos reservados</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/text-only/" target="_blank" id="view-source"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View
+        Source</a>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="../google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="../js/delegacao-evento.js"></script>
+</body>
+
+</html>
